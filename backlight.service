@@ -1,0 +1,11 @@
+[Unit]
+Description=changing brightness file perms
+PartOf=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backlight
+
+[Install]
+WantedBy=graphical.target
+Alias=backlight.service
