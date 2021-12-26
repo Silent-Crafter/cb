@@ -3,5 +3,5 @@
 # Script executed by the backlight.service
 
 echo Started
-/sbin/chmod a+rw /sys/class/backlight/intel_backlight/brightness
+/sbin/chmod a+rw /sys/class/backlight/*/brightness
 echo Finished
