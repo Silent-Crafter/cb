@@ -13,12 +13,14 @@
 # you can remove the entire path and just provide the directory path
 # in case you have two backlight directories, use the one which has more max value
 # less max values may break the script. ( maths you know )
+# or just modify the percentage value yourself so that the increase value is an integer
 backlight_dir=$(find /sys/class/backlight/*/ -type f -iname brightness | head -n1 | sed -e 's/\/brightness//')
 
 max_value=$(cat ${backlight_dir}/max_brightness)		# max brightness value
 old_brightness=$(cat ${backlight_dir}/brightness)
 
-change_value=$((max_value*5/100))						# 5 percent increment/decrement value
+percent_change=5
+change_value=$((max_value*percent_change/100))						# 5 percent increment/decrement value
 
 # Arithmatics
 if [[ "$1" == "+" ]]; then
